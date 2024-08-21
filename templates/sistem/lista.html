@@ -1,0 +1,29 @@
+{% extends "turtem/base.html" %}
+{% load static %}
+{% load permission_tags %}
+
+{% block experimento %}
+<link rel="stylesheet" href="{% static 'meu_css/turma.css' %}"> <!-- Substitua com o caminho real para seu arquivo CSS -->
+<br>
+<h2>Meus Experimentos</h2>
+<div class="main-panel">
+
+    {% if experimentos %}
+        <div class="row">
+            {% for experimento in experimentos %}
+                <div class="col-md-4" >
+                    <div class="turma">
+                        <a href="/sistema/detail/{{ experimento.id }}" >
+                            {{ experimento.nome }}
+                        </a>
+                        <!-- Outros detalhes do experimento podem ser adicionados aqui, como descrições, datas, etc. -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Não há nenhum registro.</p>
+    {% endif %}
+   
+</div> 
+{% endblock %}

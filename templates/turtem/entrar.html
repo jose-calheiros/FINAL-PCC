@@ -1,0 +1,13 @@
+{% extends "turtem/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block entrar %}
+<form method="post" class="form-sample">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary mr-2">Entrar</button>
+  </form>
+  {% endblock %}

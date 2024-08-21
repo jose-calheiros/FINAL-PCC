@@ -1,0 +1,50 @@
+{% extends "turtem/base.html" %}
+{% load permission_tags %}
+{% load static %}
+
+{% block conteudo %}
+<div class="tabs-container">
+    <ul class="tabs">
+        <li class="tab-link active"><a href="/sistema/read/{{ experimento.usuarioturma.turma.id }}">Meus experimentos</a>
+        </li>
+        <li class="tab-link" ><a href="/atividades/read/{{ experimento.id }}">Atividade</a>
+        </li>
+        {% if user|has_role:'professor'%}
+
+        <li class="tab-link active"> <a href="/sistema/confdelete/{{experimento.id }}">Excluir</a>
+        </li>
+        <li class="tab-link" ><a href="/sistema/update/{{experimento.id }}">Editar</a>
+        </li>
+        <li class="tab-link active"><a href="/atividades/add/{{ experimento.id }}">Nova atividade</a>
+        </li>
+
+{% endif %}
+
+        
+    </ul>
+<h2 style="text-align: center;">{{ experimento.nome }}</h2>
+<link rel="stylesheet" href="{% static 'meu_css/aba.css' %}">
+<link rel="stylesheet" href="{% static 'meu_css/experimento.css' %}">
+<div class="table">
+    <div class="table-container">   
+        <table class="student-table">
+            <tbody>
+                <tr>
+                    <th style="color: white;">Numero da Maquina</th>
+                    <td style="color: black;">{{ experimento.n_maquina }}</td>
+                </tr>
+                <tr>
+                    <th style="color: white;">Resultado</th>
+                    <td style="color: black;">{{ experimento.resultado }}</td>
+                </tr>
+                <tr>
+                    <th style="color: white;">Localização</th>
+                    <td style="color: black;">{{ experimento.localizacao }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}

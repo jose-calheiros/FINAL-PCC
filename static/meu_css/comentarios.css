@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #15181f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    font-size: 1.4em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-comment {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-comment .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+input{
+    
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    resize: none;
+    background-color: #f0f0f0   
+}
+
+.add-comment button {
+    background-color: #065fd4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-comment button:hover {
+    background-color: #0547a3;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment {
+    display: flex;
+}
+
+.comment .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.comment-header .username {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.comment-header .time {
+    font-size: 0.9em;
+    color: #606060;
+}
+
+.comment-content p {
+    margin: 0;
+    color: #ffffff;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.comment-actions .like-button,
+.comment-actions .reply-button {
+    background: none;
+    border: none;
+    color: #065fd4;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.comment-actions .like-button:hover,
+.comment-actions .reply-button:hover {
+    text-decoration: underline;
+}
+
+.comment-actions .likes-count {
+    font-size: 0.9em;
+    color: #606060;
+}
+

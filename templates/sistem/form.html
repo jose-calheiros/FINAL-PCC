@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block form %}
+<form action="/sistema/add/{{ turma.id }}" method="post" class="form-sample">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary mr-2">Registar</button>
+    <button class="btn btn-dark">
+      <a style="color: white; text-decoration: none; " href="/sistema/">Não</a>
+  </button>
+  </form>
+
+  {% endblock %}

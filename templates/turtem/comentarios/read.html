@@ -1,0 +1,53 @@
+{% extends "turtem/base.html" %}
+
+{% block comentario %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentários</title>
+    <link rel="stylesheet" href="{% static 'meu_css/comentarios.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Comentários</h2>
+        <div class="comment-section">
+            <!-- Formulário para Adicionar Comentário -->
+            <div class="add-comment">
+                <form method="post">
+                    {% csrf_token %}
+                    <input name="texto" placeholder="Adicione um comentário..."></input>
+                    <button type="submit">Comentar</button>
+                </form>
+            </div>
+
+            <hr>
+
+            <!-- Lista de Comentários -->
+            <div class="comments-list">
+                {% for comentario in comentarios %}
+                    <div class="comment">
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">{{ comentario.usuario.username }}</span>
+                                <span class="time">{{ comentario.data|timesince }} atrás</span>
+                            </div>
+                            <p>{{ comentario.texto }}</p>
+                            <div class="comment-actions">
+                                <button class="reply-button"><a href="/comentarios/update/{{comentario.id}}">Editar</a></button>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %} 
+                    <p>Não há comentários ainda.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

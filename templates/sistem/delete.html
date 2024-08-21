@@ -1,0 +1,39 @@
+{% extends "sistem/base.html" %}
+{% block delete %}
+    <h3>Deseja excluir o experimento?</h3>
+
+
+
+    <table class="table">
+      
+      <tr>
+        <th>Nome</th>
+        <td> {{ experimento.nome}}</td>
+      </tr>
+
+      <tr>
+        <th>Numero da Maquina</th>
+        <td> {{ experimento.n_maquina}}</td>
+      </tr>
+
+      
+        
+      <tr>
+        <th>Resultado</th>
+        <td> {{ experimento.resultado}}</td>
+      </tr>
+
+      <tr>
+        <th>Localização</th>
+        <td> {{ experimento.localizacao}}</td>
+      </tr>
+    
+    </table>
+    <button type="submit" class="btn btn-primary mr-2">
+        <a style="color: black; text-decoration: none;"  href="/sistema/delete/{{ experimento.id }}">Sim</a>
+    </button>
+    <button class="btn btn-dark">
+        <a style="color: white; text-decoration: none; " href="/sistema/">Não</a>
+    </button>
+{% endblock %}
+

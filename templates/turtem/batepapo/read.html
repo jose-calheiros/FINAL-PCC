@@ -1,0 +1,55 @@
+
+{% extends "turtem/base.html" %}
+
+{% block comentario %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate-Papo</title>
+    <link rel="stylesheet" href="{% static 'meu_css/comentarios.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Bate-Papo da Turma {{ turma.nome }}</h2>
+        <div class="comment-section">
+            <!-- Formulário para Adicionar Mensagem -->
+            <div class="add-comment">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+
+            <hr>
+
+            <!-- Lista de Mensagens -->
+            <div class="comments-list">
+                {% for mensagem in bate_papo %}
+                    <div class="comment">
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">{{ mensagem.usuarioturma.usuario.username }}</span>
+                                <span class="time">{{ mensagem.data|timesince }} atrás</span>
+                            </div>
+                            <p>{{ mensagem.mensagem }}</p>
+                            <div class="comment-actions">
+                                <button class="reply-button"><a href="/bate_papo/update/{{mensagem.id}}">Editar</a></button>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Não há mensagens ainda.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+

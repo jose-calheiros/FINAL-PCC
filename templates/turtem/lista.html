@@ -1,0 +1,26 @@
+{% extends "turtem/base.html" %}
+{% load static %}
+{% block lista %}
+
+<link rel="stylesheet" href="{% static 'meu_css/turma.css' %}"> <!-- Substitua com o caminho real para seu arquivo CSS -->
+<br>
+<h2>TURMAS</h2>
+<div class="main-panel">
+    {% if turmas %}
+        <div class="row">
+            {% for turma in turmas %}
+                <div class="col-md-4" style="margin-bottom: 20px;">
+                    <div class="turma">
+                        <a href="/turma/detail/{{ turma.id }}" >
+                            <h3 style="margin: 0 0 10px 0;">{{ turma.nome }}</h3>
+                        </a>
+                                          </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Nenhuma turma disponível.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

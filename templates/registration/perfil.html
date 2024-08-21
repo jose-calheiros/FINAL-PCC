@@ -1,0 +1,36 @@
+{% extends 'turtem/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'meu_css/perfil.css' %}">
+
+<div class="main-panel">
+    <div class="profile-header">
+        <h2>Perfil de {{ user.username }}</h2>
+        
+        <table class="profile-table">
+            <tbody>
+                <tr>
+                    <th>Nome de Usuário</th>
+                    <td>{{ user.username }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Data de Matrícula</th>
+                    <td>{{ usuarioturma.data_matricula }}</td>
+                </tr>
+                <tr>
+                    <th>Último Login</th>
+                    <td>{{ user.last_login }}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+        <a href="/usuario/update/{{ user.id }}" class="btn btn-primary">Editar Perfil</a>
+    </div>
+</div>
+{% endblock %}

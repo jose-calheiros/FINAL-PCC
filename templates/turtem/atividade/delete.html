@@ -1,0 +1,28 @@
+{% extends "turtem/base.html" %}
+{% block delete %}
+    <h3>Deseja marcar como concluida?</h3>
+
+
+
+    <table class="table">
+      
+
+      <tr>
+        <th>Nome</th>
+        <td> {{ atividades.titulo}}</td>
+      </tr>
+
+      <tr>
+        <th>Professor</th>
+        <td> {{ atividades.responsavel.usuario.username}}</td>
+      </tr>
+
+   
+    </table>
+    <button type="submit" class="btn btn-primary mr-2">
+        <a style="color: black; text-decoration: none;"  href="/atividades/delete/{{atividades.id }}">Sim</a>
+    </button>
+    <button class="btn btn-dark">
+        <a style="color: white; text-decoration: none; " href="/atividades/detail/{{atividades.id }}">Não</a>
+    </button>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "turtem/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+    {% block add %}
+    <form method="post" class="form-sample">
+      {{ form|crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary mr-2">Registar</button>
+        <button class="btn btn-dark">
+          <a style="color: white; text-decoration: none; " href="/turma/detail/">Não</a>
+      </button>
+      </form>
+    {% endblock %}

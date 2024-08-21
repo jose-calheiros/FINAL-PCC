@@ -1,0 +1,48 @@
+<!-- templates/turtem/atividade/detail.html -->
+{% extends "turtem/base.html" %}
+{% load permission_tags %}
+{% load static %}
+
+{% block conteudo %}
+<link rel="stylesheet" href="{% static 'meu_css/aba.css' %}">
+<link rel="stylesheet" href="{% static 'meu_css/atividade.css' %}">
+
+<div class="tabs-container">
+    <ul class="tabs">
+        <li class="tab-link active"><a href="/atividades/read/{{ experimento.id }}">Atividades</a>
+        </li>
+        <li class="tab-link" ><a href="/comentarios/read/{{atividade.id }}">Comentarios</a>
+        </li>
+        {% if user|has_role:'professor'%}
+        <li class="tab-link active"><a href="/atividades/confdelete/{{atividade.id }}">Concluir</a>
+
+        </li>
+        <li class="tab-link" ><a href="/atividades/update/{{atividade.id }}">Editar</a>
+
+        </li>
+{% endif %}
+        
+        
+    </ul>
+    <div class="container">
+    
+        <!-- Detalhes da Atividade -->
+        <div class="atividade-detalhes">
+            <h2 class="atividade-titulo">
+                <i class="fas fa-tasks"></i> Detalhes da Atividade
+            </h2>
+            <p class="atividade-subtitulo">{{ atividade.titulo }}</p>
+            <div class="atividade-descricao">
+                {{ atividade.decricao }}
+            </div>
+        </div>
+    
+        <!-- Detalhes do Experimento -->
+        <div class="experimento-detalhes">
+            <p><strong><i class="fas fa-flask"></i> Experimento:</strong> {{ experimento.nome }}</p>
+        </div>
+    </div>
+
+
+
+{% endblock %}

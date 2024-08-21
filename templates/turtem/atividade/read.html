@@ -1,0 +1,29 @@
+<!-- templates/turtem/atividade/read.html -->
+{% extends "turtem/base.html" %}
+{% load static %}
+
+
+{% block conteudo %}
+<link rel="stylesheet" href="{% static 'meu_css/turma.css' %}"> 
+<br>
+<h1 style="text-align: center;">Atividades</h1>
+
+<div class="main-panel">
+    {% if atividades %}
+        <div class="row">
+            {% for atividade in atividades %}
+                <div class="col-md-4" >
+                    <div class="turma">
+                        <a href="/atividades/detail/{{atividade.id}}" >
+                            {{  atividade.titulo }}
+                        </a>
+                        <!-- Outros detalhes do experimento podem ser adicionados aqui, como descrições, datas, etc. -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Nenhuma atividade.</p>
+    {% endif %}
+</div> 
+{% endblock %}

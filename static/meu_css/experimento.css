@@ -1,0 +1,46 @@
+/* Container da Tabela */
+.table-container {
+    width: 100%; /* Ocupa toda a largura disponível do container pai */
+    max-width: 800px; /* Largura máxima ajustada para refletir o layout da tabela */
+    margin: 30px auto; /* Espaçamento superior e inferior mais generoso */
+    padding: 0 15px; /* Adiciona algum preenchimento horizontal */
+}
+
+/* Estilo da Tabela */
+.student-table {
+    width: 100%; /* Ocupa toda a largura disponível do container */
+    border-collapse: collapse; /* Remove o espaçamento entre células */
+    background-color: #ffffff;
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra mais suave e ampla */
+    overflow: hidden;
+    margin: 0 auto; /* Centraliza a tabela horizontalmente */
+}
+
+/* Estilo das células */
+.student-table th {
+    padding: 12px 20px; /* Aumentado para mais conforto */
+    text-align: left; /* Alinhamento à esquerda */
+    font-size: 14px;
+    background: linear-gradient(to right, #15181f, #20354b);
+    border-bottom: 1px solid #eee; /* Linha de separação mais clara */
+    vertical-align: middle; /* Alinhamento vertical centralizado */
+}
+.student-table td{
+    padding: 20px; /* Aumentado para mais conforto */
+    text-align: center; /* Alinhamento à esquerda */
+    font-size: 14px;
+    background-color: #dddddd;
+    border-bottom: 1px solid #eee; /* Linha de separação mais clara */
+    vertical-align: middle; /* Alinhamento vertical centralizado */
+}
+/* Cor de fundo alternada para linhas */
+.student-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Efeito de hover */
+.student-table tbody tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.3s ease;
+}

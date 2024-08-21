@@ -1,0 +1,67 @@
+{% extends "turtem/base.html" %}
+{% load permission_tags %}
+{% load static %}
+
+
+{% block conteudo %}
+<link rel="stylesheet" href="{% static 'meu_css/aba.css' %}">
+<link rel="stylesheet" href="{% static 'meu_css/table.css' %}">
+
+<script src="{% static 'meu_js/aba.js' %}"></script>
+
+
+<div class="tabs-container">
+    <ul class="tabs">
+        <li class="tab-link active"><a href="/sistema/read/{{ turma.id }}">Meus experimentos</a>
+        </li>
+        <li class="tab-link" ><a href="/bate_papo/read/{{turma.id}}">Forum</a>
+        </li>
+        {% if user|has_role:'professor' %}
+        <li class="tab-link" ><a href="/sistema/add/{{ usuario_turma.id }}">Novo Experimento</a>
+        </li>
+        <li class="tab-link" ><a href="/turma/update/{{ turma.id }}">Editar</a>
+        </li>
+        <li class="tab-link" ><a href="/turma/confdelete/{{ turma.id }}">Encerar</a>
+        </li>
+        {% endif %}
+        
+    </ul>
+<h1 style="text-align: center;">{{ turma.nome }}</h1>
+<ul>
+    <div class="main-panel">
+        
+        <div class="table-container">
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th style="color: white;">N°</th>
+                        <th style="color: white;">Alunos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if usuarios %}
+                        {% for usuario in usuarios %}
+                            <tr>
+                                <td style="color: black;">{{ forloop.counter }}</td>
+                                <td style="color: black;">{{ usuario.username }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="2" style="color: black; text-align: center;">Nenhum aluno inscrito nesta turma.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</ul>
+
+{% endblock %}
+
+
+
+
+
+
